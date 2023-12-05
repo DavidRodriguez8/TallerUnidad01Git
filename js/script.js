@@ -103,4 +103,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    // Nuevo botón de conversión
+    var btnConvertir = document.getElementById("btnConvertir");
+    btnConvertir.onclick = function () {
+        convertirAFahrenheit();
+    };
+
+    function convertirAFahrenheit() {
+        try {
+            var celsius = parseFloat(tela.value);
+            if (isNaN(celsius)) {
+                alert("Por favor, ingrese un número válido en grados Celsius.");
+                return;
+            }
+
+            var fahrenheit = (celsius * 9/5) + 32;
+            tela.value = celsius + " °C = " + fahrenheit.toFixed(2) + " °F";
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
 });
